@@ -1,4 +1,4 @@
-<footer class="site-footer style-1">
+<footer class="site-footer footer-dark">
     <!-- Footer Top -->
     <div class="footer-top">
         <div class="container">
@@ -10,7 +10,7 @@
                                     alt="">INSTITUT
                                 TEKNOLOGI DEL</a>
                         </div>
-                        <p class="text">Institut Teknologi Del
+                        <p class="text text-white">Institut Teknologi Del
                             Jl. Sisingamangaraja, Sitoluama
                             Laguboti, Toba Samosir
                             Sumatera Utara, Indonesia
@@ -45,7 +45,7 @@
         <div class="container">
             <div class="row fb-inner">
                 <div class="col-lg-6 col-md-12 text-start">
-                    <p class="copyright-text">© {{ date('Y') }} Kelompok 24 TA Sarjana Terapan Teknologi
+                    <p class="copyright-text text-white">© {{ date('Y') }} Kelompok 24 TA Sarjana Terapan Teknologi
                         Rekayasa
                         Perangkat Lunak</p>
                 </div>

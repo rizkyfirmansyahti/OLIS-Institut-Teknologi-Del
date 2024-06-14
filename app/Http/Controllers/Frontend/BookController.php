@@ -55,8 +55,9 @@ class BookController extends Controller
         if (!$book) {
             $book = Book::where('slug', $slug)->first();
         }
+        $book_copies = Book::where('slug', $slug)->get();
         // return view('frontend.books.show', compact('book'));
-        return view('frontend_revisi.books.show', compact('book'));
+        return view('frontend_revisi.books.show', compact('book', 'book_copies'));
     }
 
     /**

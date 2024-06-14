@@ -29,7 +29,8 @@
                         @foreach ($books as $book)
                             <div class="dz-blog style-1 bg-white m-b30 blog-half">
                                 <div class="dz-media dz-img-effect zoom d-flex justify-content-center align-items-center">
-                                    <img src="{{ $book->cover }}" alt="{{ $book->title }}" class="w-50">
+                                    <img src="{{ $book->cover }}" alt="{{ $book->title }}" class="w-50"
+                                        onerror="this.onerror=null; this.src='https://lancangkuning.com/image/NoImage.png';">
                                 </div>
                                 <div class="dz-info">
                                     <h4 class="dz-title">
@@ -45,36 +46,6 @@
                                                 {{ $book->rating }}</li>
                                         </ul>
                                     </div>
-                                    {{-- <div class="dz-meta meta-bottom">
-                                        <ul class="border-0 pt-0">
-                                            <li class="post-date"><i
-                                                    class="fas fa-pencil-alt fa-fw m-r10"></i>{{ $book->author }}</li>
-                                            <li class="post-author"><i class="far fa-file-alt fa-fw m-r10"></i>158 Hal</li>
-                                            <li class="post-author"><a href="javascript:void(0);"><i
-                                                        class="fas fa-layer-group fa-fw"></i><span>{{ $book->publisher }}</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="dz-meta meta-bottom">
-                                        <ul class="border-0 pt-0">
-                                            <li class="post-date"><i class="fas fa-note-sticky fa-fw m-r10"></i>
-                                                {{ $book->subject }}</li>
-                                            <li class="post-author">ISBN :
-                                                {{ $book->isbn }}</li>
-                                            <li class="post-author"><a href="javascript:void(0);"><span><i
-                                                            class="fa-solid fa-circle-check"></i>
-                                                        {{ $book->available == null ? 'Tidak Tersedia' : 'Tersedia' }}</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="dz-meta meta-bottom">
-                                        <ul class="border-0 pt-0">
-                                            <li class="post-date"><i class="fas fa-star fa-fw m-r10"></i>
-                                                {{ $book->rating }}</li>
-                                            <li class="post-author"><i
-                                                    class="fas fa-book fa-fw m-r10"></i>{{ $book->code }}</li>
-                                        </ul>
-                                    </div> --}}
                                 </div>
                             </div>
                         @endforeach
@@ -83,10 +54,6 @@
                         <nav aria-label="Blog Pagination">
                             <ul class="pagination text-center p-t20 style-1 m-b30">
                                 {{ $books->links('components.pagination') }}
-                                {{-- <li class="page-item"><a class="page-link prev" href="javascript:void(0);">
-                                        {{ $books->links('components.pagination') }}
-                                    </a>
-                                </li> --}}
                             </ul>
                         </nav>
                     </div>
@@ -144,8 +111,6 @@
                                             </div>
                                         </div>
                                     @endforeach
-
-
                                 </div>
                             </div>
                         </aside>

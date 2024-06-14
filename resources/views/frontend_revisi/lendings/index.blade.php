@@ -44,6 +44,35 @@
             color: #c59b08;
         }
     </style>
+    <style>
+        <style>#customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #20146c;
+            color: white;
+        }
+    </style>
 @endpush
 @section('content')
     <div class="page-content bg-white">
@@ -69,7 +98,7 @@
             <div class="container">
                 <div class="row">
                     {{-- CONTENT --}}
-                    @forelse ($lendings as $lending)
+                    {{-- @forelse ($lendings as $lending)
                         <div class="col-xl-6 col-lg-6">
                             <div class="dz-blog style-1 bg-white m-b30">
                                 <div class="dz-info">
@@ -128,7 +157,69 @@
                             </div>
                         </div>
                     @empty
-                    @endforelse
+                    
+                    @endforelse --}}
+                    <div class="card " style="overflow-x: auto;width: 100%">
+                        <table id="customers" class="display">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul Buku</th>
+                                    <th>Pengarang</th>
+                                    <th>Tahun</th>
+                                    <th>Tanggal Peminjaman</th>
+                                    <th>Tanggal Pengembalian</th>
+                                    <th>Denda</th>
+                                    <th>Status</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @forelse ($lendings as $lending)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $lending->book->title }}</td>
+                                        <td>{{ $lending->book->author }}</td>
+                                        <td>{{ $lending->book->year }}</td>
+                                        <td>{{ $lending->lending_date }}</td>
+                                        <td>{{ $lending->return_date }}</td>
+                                        <td>{{ $lending->fine }}</td>
+                                        <td>
+                                            @if ($lending->status == 'pending')
+                                                <span style="color: #FFC107;" class="fw-bold">Menunggu</span>
+                                            @elseif ($lending->status == 'lent')
+                                                <span style="color: #28A745;" class="fw-bold">Dipinjam</span>
+                                            @elseif ($lending->status == 'returned')
+                                                <span style="color: #007BFF;" class="fw-bold">Dikembalikan</span>
+                                            @elseif ($lending->status == 'extended')
+                                                <span style="color: #17A2B8;" class="fw-bold">Diperpanjang</span>
+                                            @elseif ($lending->status == 'rejected')
+                                                <span style="color: #DC3545;" class="fw-bold">Ditolak</span>
+                                            @elseif($lending->status == 'overdue')
+                                                <span style="color: #DC3545;" class="fw-bold">Terlambat</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($lending->status == 'returned')
+                                                @if ($lending->book->hasReviewed(auth()->user()))
+                                                    @for ($i = 0; $i < $lending->book->rating; $i++)
+                                                        <i class="fas fa-star text-warning"></i>
+                                                    @endfor
+                                                @else
+                                                    <a href="{{ route('books.review', $lending->book->slug) }}"
+                                                        class="btn btn-primary btn-rate">Beri Rating</a>
+                                                @endif
+                                            @endif
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="9" class="text-center">Tidak ada data</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <nav aria-label="Blog Pagination">
                     <ul class="pagination text-center p-t20 style-1 m-b30">
@@ -182,6 +273,11 @@
                         }
                     });
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#customers').DataTable();
         });
     </script>
 @endpush

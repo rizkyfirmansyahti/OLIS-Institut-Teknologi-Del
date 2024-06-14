@@ -34,7 +34,8 @@
                                 <p class="text">{!! $libraryArchive->body !!}</p>
 
                                 <img id="file" src="{{ $libraryArchive->image }}" class="w-100 rounded"
-                                    alt="{{ $libraryArchive->title }}">
+                                    alt="{{ $libraryArchive->title }}"
+                                    onerror="this.onerror=null; this.src='https://lancangkuning.com/image/NoImage.png';">
                             </div>
                         </div>
                     </div>

@@ -26,12 +26,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- STYLESHEETS -->
+    {{-- Boostrap Select --}}
     <link rel="stylesheet" type="text/css"
         href="{{ asset('frontend_revisi/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+    {{-- FontAwesome --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_revisi/icons/fontawesome/css/all.min.css') }}">
+    {{-- Swiper --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_revisi/vendor/swiper/swiper-bundle.min.css') }}">
+    {{-- Animate --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_revisi/vendor/animate/animate.css') }}">
+    {{-- Custom CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_revisi/css/style.css') }}">
+    {{-- Datatables --}}
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+
 
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -111,12 +119,12 @@
     <script src="{{ asset('frontend_revisi/js/dz.carousel.js') }}"></script><!-- DZ CAROUSEL JS -->
     <script src="{{ asset('frontend_revisi/js/dz.ajax.js') }}"></script><!-- AJAX -->
     <script src="{{ asset('frontend_revisi/js/custom.js') }}"></script><!-- CUSTOM JS -->
-
-
+    <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    {{-- Sweetalert --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="{{ asset('backend/js/method.js') }}"></script>
-
+    {{-- Logout --}}
     <script>
         function logout() {
             Swal.fire({

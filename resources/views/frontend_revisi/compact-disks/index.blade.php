@@ -56,7 +56,9 @@
                         <div class="col-xl-6 col-lg-6">
                             <div class="dz-blog style-1 bg-white m-b30">
                                 <div class="dz-media dz-img-effect zoom d-flex justify-content-center align-items-center">
-                                    <img src="{{ $cd->cover }}" alt="{{ $cd->title }}" class="w-50">
+                                    <img src="{{ $cd->cover }}" alt="{{ $cd->title }}"
+                                        onerror="this.onerror=null; this.src='{{ asset('frontend/dist/img/cd.png') }}';"
+                                        style="height: 100px;width: 100px;">
                                 </div>
                                 <div class="dz-info">
                                     <h4 class="dz-title">
