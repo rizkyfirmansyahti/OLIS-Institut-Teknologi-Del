@@ -1,0 +1,67 @@
+/* CSS untuk tata letak responsif pada perangkat mobile */
+@media only screen and (max-width: 600px) {
+    .header-container,
+    .footer-card {
+        width: 100%; /* Set lebar header dan footer menjadi 100% dari layar */
+    }
+
+    .header-container {
+        padding: 10px; /* Mengurangi padding pada header */
+    }
+
+    .logo {
+        width: 25px; /* Mengurangi ukuran logo */
+    }
+
+    .header-text {
+        margin-left: 5px; /* Mengurangi jarak antara logo dan teks */
+        font-size: 10px; 
+    }
+
+    .user-name .user-text {
+        font-size: 12px; 
+        font-weight: bold;
+    }
+
+    .header-image {
+        margin-top: 40px; /* Mengurangi margin atas pada gambar header */
+    }
+
+    .header-image-text {
+        padding: 10px; /* Mengurangi padding pada teks gambar header */
+    }
+
+    
+    .header-navigation a {
+    font-size: 10.5px; /* Mengurangi ukuran teks navigasi */
+    }
+
+    .footer-text {
+        margin: 10px; /* Mengurangi margin pada teks footer */
+        font-size: 10px; /* Mengurangi ukuran teks footer */
+    }
+
+    .card-container {
+        grid-template-columns: repeat(1, 1fr); /* Satu kolom untuk perangkat mobile */
+    }
+
+    h2 {
+        font-size: 10px; /* Mengurangi ukuran teks footer */
+    }
+ 
+    .sub-card-container {
+        flex-wrap: wrap;
+        width: 200px; /* Atur lebar kartu sesuai kebutuhan */
+        font-size: 14px; /* Mengurangi ukuran teks footer */
+
+    }
+
+    /* Mengatur lebar kartu agar masing-masing kartu berada di sampingnya */
+    .sub-card {
+        width: 48%; /* Mengatur lebar agar dua kartu bersebelahan */
+        margin-bottom: 10px; /* Menambahkan margin antar kartu */
+        
+    }
+}
+
+

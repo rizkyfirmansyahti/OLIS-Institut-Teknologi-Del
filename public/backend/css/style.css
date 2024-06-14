@@ -1,0 +1,383 @@
+ /* CSS untuk mengatur tata letak gambar dan teks */
+ body {
+    overflow-x: hidden;
+    margin: 0; /* Menghilangkan margin default body */
+}
+
+hr.styled {
+    border: none; 
+    height: 4px; 
+    background-color: #6F410B; 
+    margin: 20px auto; /* Center horizontally */
+    border-radius: 20px;
+    width: 17%;
+}
+
+hr.styled::before,
+hr.styled::after {
+    content: "";
+    display: block;
+    border-top: 2px solid #6F410B; 
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    background-color: #f0f0f0; /* Warna latar belakang header */
+    position: fixed; /* Tambahkan properti untuk membuat fixed */
+    width: 100%; /* Agar lebar header 100% dari layar */
+    top: 0; /* Tempatkan header di bagian atas */
+    z-index: 1000; /* Tingkatkan indeks z agar tetap di atas konten */
+}
+
+.logo {
+    width: 60px; /* Sesuaikan ukuran logo sesuai kebutuhan */
+}
+
+.header-text {
+    display: flex; /* Menyusun teks dan logo dalam satu baris */
+    align-items: center; /* Memastikan teks dan logo sejajar */
+    margin-left: 10px; /* Jarak antara logo dan teks */
+}
+
+.user-name {
+    margin-left: auto;
+    margin-right: 30px;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    display: flex; /* Menambah properti display flex */
+    align-items: center; /* Agar ikon dan teks sejajar */
+    font-size: 24px;
+}
+
+.user-name i {
+    margin-right: 10px; /* Memberikan jarak antara ikon dan teks */
+}
+
+.user-name .user-text {
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: small;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff; /* Warna latar belakang menu dropdown */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bayangan menu dropdown */
+    z-index: 1;
+    width: max-content; /* Menyesuaikan lebar dropdown dengan panjang teks terpanjang */
+    padding: 10px; /* Padding di dalam dropdown */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px; /* Padding di dalam setiap item dropdown */
+    text-decoration: none;
+    color: #333; /* Warna teks menu dropdown */
+}
+
+.user-name:hover .dropdown-menu {
+    display: block;
+}
+
+h3 {
+    margin: 0; /* Menghilangkan margin bawaan h3 */
+}
+
+.header-image {
+    width: 100%;
+    position: relative;
+    margin-top: 60px; /* Sesuaikan dengan tinggi header */
+}
+
+.header-image-text {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 20px; /* Tambahkan padding sesuai kebutuhan */
+    color: #fff; /* Warna teks */
+    font-size: 18px; /* Ukuran teks */
+    font-weight: bold;
+    text-align: right;
+}
+
+.header-navigation {
+    display: flex;
+    flex-direction: row; /* Tata letak horizontal */
+    justify-content: center; /* Pusatkan item navigasi */
+    align-items: center; /* Pusatkan item vertikal */
+}
+
+.header-navigation a {
+    font-size: 24px; /* Mengurangi ukuran teks navigasi */
+    padding: 0 8px; /* Menambahkan padding di sekitar teks navigasi */
+    text-decoration: none; /* Menghilangkan garis bawah pada tautan */
+    color: #fff; /* Warna teks navigasi */
+    
+}
+
+.header-navigation a:hover {
+    color: #f0f0f0; /* Warna teks navigasi saat dihover */
+}
+
+.header-navigation {
+    color: #fff; /* Warna teks nama pengguna */
+    font-size: 18px; /* Ukuran teks nama pengguna */
+    font-weight: normal;
+}
+
+/* Tambahkan styling untuk konten agar tidak tertutup oleh header */
+.content {
+    margin-top: 100px; /* Sesuaikan dengan tinggi header */
+    padding: 20px;
+}
+
+.footer-card {
+    background-color: #996221;
+    margin-top: 10px;
+    height: 146px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+
+}
+
+.footer-text{
+    text-align: center;
+    color: white;
+    transition: color 0.3s;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-right: 50px; /* Mengatur margin kiri menjadi otomatis */
+    margin-left: 50px; /* Mengatur margin kiri menjadi otomatis */
+
+}
+
+.footer-text a {
+    color: white; /* Ganti warna sesuai kebutuhan, misalnya white (putih) */
+    text-decoration: none; /* Untuk menghilangkan garis bawah pada tautan */
+    font-size: 18px;
+}
+
+.footer-text a:hover {
+    color: blue;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 18px;
+    color: #555; /* Ganti dengan warna yang diinginkan */
+    margin-top: 100px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff; /* Ganti dengan warna latar belakang yang diinginkan */
+    color: #000; /* Ganti dengan warna teks yang diinginkan */
+    width: max-content; /* Lebar mengikuti ukuran huruf */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    text-align: left; /* Rata kiri teks */
+}
+
+.dropdown .dropdown-menu a {
+    color: #000; /* Ganti dengan warna teks yang diinginkan */
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #ddd; /* Ganti dengan warna latar belakang saat dihover */
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom dengan lebar yang sama */
+    grid-auto-rows: auto; /* Baris tambahan sesuai kebutuhan konten */
+}
+
+.icon-frame {
+    display: inline-block;
+    border: 2px solid #ccc;
+    padding: 5px;
+    border-radius: 5px; /* Mengatur radius sudut frame */
+    margin-right: 5px; /* Untuk memberi jarak antara ikon */
+}
+
+h1 {
+    color: #6F410B;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.login-link {
+    font-weight: bold;
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: #000;
+}
+
+.card-container-book{
+    height: 1025px;
+    background-color: #E7E7E7;
+    display: flexbox; 
+    padding: 60px 50px 60px 50px;
+}
+
+.sub-card-container-book{
+    display: flex;
+    width: 365px;
+    height: 250px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.sub-card-container-book img {
+    width: 160px;
+    height: 216px;
+    margin-right: 35px;
+}
+
+.subtitle{
+    margin-top: 20px;
+}
+
+.sub-card-user {
+    display: flex;
+    width: 435px;
+    height: fit-content;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 50px 0 50px 40px;
+    margin-right: 20px;
+}
+
+.sub-card-user img {
+    width: 134px;
+    height: 108px;
+    margin-right: 38px;
+}
+
+.sub-card-user div {
+    flex-grow: 1;
+}
+
+.sub-card-user-book {
+    display: flex;
+    align-items: center;
+    align-items: flex-start; 
+}
+
+.sub-card-user-book img {
+    width: 160px;
+    height: 216px;
+    margin-right: 38px;
+}
+
+.sub-card-user-book div {
+    flex-grow: 1;
+    margin: 0;
+}
+
+.text-book{
+    display: flex;
+    align-items: center;
+}
+
+.book-container{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 50px 40px 50px 40px;
+    margin-right: 20px;
+}
+
+.card-user {
+    background-color: #e7e7e7;
+    height: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 60px 50px 60px 50px;
+}
+
+img {
+    width: 100%;
+}
+
+/* Styling untuk judul */
+h6 {
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.title-container{
+    display: flexbox;
+    padding: 2px;
+    background-color: #ffffff; 
+    height: 150px;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 50px;
+}
+
+.sub-card-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-container-link {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+}
+
+.card-link {
+    flex: 0 0 calc(50% - 20px); /* Mengatur lebar kartu */
+    background-color: #C9AC98;
+    padding: 10px;
+    margin: 10px; /* Menambahkan margin pada setiap kartu */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.isi {
+    font-size: 22px;
+}
+
