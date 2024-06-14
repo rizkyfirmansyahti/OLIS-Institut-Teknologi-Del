@@ -136,7 +136,7 @@
                     </p>
                 </a>
 
-            <li class="nav-item">
+                {{-- <li class="nav-item">
                 <a href="{{ route('backend.log-visitors.index') }}"
                     class="nav-link {{ 'log-visitors' == request()->path() ? 'active' : '' }}">
                     <i class="nav-icon fas fa-user"></i>
@@ -144,7 +144,7 @@
                         Log Pengunjung
                     </p>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 </aside>

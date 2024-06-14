@@ -14,7 +14,8 @@ class LogVisitorController extends Controller
     public function index(Request $request)
     {
         $visitorToday = LogVisitor::whereDate('visited_at', today())->count();
-        return view('backend.log-visitors.index', compact('visitorToday'));
+        // return view('backend.log-visitors.index', compact('visitorToday'));
+        return view('log_visitors_revisi.index', compact('visitorToday'));
     }
 
     public function data(Request $request)

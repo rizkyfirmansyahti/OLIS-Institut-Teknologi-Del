@@ -105,13 +105,13 @@ Route::prefix('backend')
         });
 
         // log visitor
-        $pref = 'log-visitors';
-        $ctrl = 'LogVisitorController';
-        Route::prefix($pref)->group(function () use ($ctrl) {
-            Route::get('/', $ctrl . '@index')->name('log-visitors.index');
-            Route::get('/data', $ctrl . '@data')->name('log-visitors.data');
-            Route::post('/', $ctrl . '@store')->name('log-visitors.store');
-        });
+            // $pref = 'log-visitors';
+            // $ctrl = 'LogVisitorController';
+            // Route::prefix($pref)->group(function () use ($ctrl) {
+            //     Route::get('/', $ctrl . '@index')->name('log-visitors.index');
+            //     Route::get('/data', $ctrl . '@data')->name('log-visitors.data');
+            //     Route::post('/', $ctrl . '@store')->name('log-visitors.store');
+            // });
     });
 
 //User
@@ -190,6 +190,12 @@ Route::
             Route::get('/compact-disks', $ctrl . '@compactDisks')->name('notifications.compact-disks');
         });
     });
+
+// Log Pengunjung
+Route::get('/log-visitors', '\App\Http\Controllers\Backend\LogVisitorController@index')->name('log-visitors.index');
+Route::get('/log-visitors/data', '\App\Http\Controllers\Backend\LogVisitorController@data')->name('log-visitors.data');
+Route::post('/', '\App\Http\Controllers\Backend\LogVisitorController@store')->name('log-visitors.store');
+
 
 // login
 Route::get('/login', '\App\Http\Controllers\AuthController@index')->name('login');

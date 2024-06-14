@@ -13,7 +13,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('backend.log-visitors.store') }}" method="post" id="form">
+                        <form action="{{ route('log-visitors.store') }}" method="post" id="form">
                             @csrf
                             <div class="form-group row">
                                 <label for="id_member" class="col-sm-3 col-form-label">ID Member</label>
