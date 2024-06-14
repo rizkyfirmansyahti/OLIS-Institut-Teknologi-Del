@@ -67,7 +67,8 @@
                         @foreach ($books as $book)
                             <div class="dz-blog style-1 bg-white m-b30 blog-half">
                                 <div class="dz-media dz-img-effect zoom d-flex justify-content-center align-items-center">
-                                    <img src="{{ $book->cover }}" alt="{{ $book->title }}" class="w-50">
+                                    <img src="{{ $book->cover }}" alt="{{ $book->title }}" class="w-50"
+                                        onerror="this.onerror=null; this.src='https://lancangkuning.com/image/NoImage.png';">
                                 </div>
                                 <div class="dz-info">
                                     <h4 class="dz-title">
