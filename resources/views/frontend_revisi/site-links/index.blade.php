@@ -22,14 +22,16 @@
         <!-- Blog Large -->
         <section class="content-inner-1 bg-img-fix">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-start">
                     @foreach ($siteLinks as $siteLink)
-                        <div class="col  col-md-4 col-lg-2 mb-2">
-                            <a href="{{ $siteLink->url }}" class="btn btn-primary" target="_blank">{{ $siteLink->name }}</a>
+                        <div class="col-6 col-md-6 col-lg-6 mb-2 d-flex justify-content-start">
+                            <a href="{{ $siteLink->url }}" class="btn btn-primary w-100"
+                                target="_blank">{{ $siteLink->name }}</a>
                         </div>
                     @endforeach
                 </div>
             </div>
         </section>
+
     </div>
 @endsection

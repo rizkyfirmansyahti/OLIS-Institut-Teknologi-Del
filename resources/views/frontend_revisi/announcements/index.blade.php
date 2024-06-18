@@ -35,7 +35,7 @@
                                         <a
                                             href="{{ route('announcements.show', $announcement->slug) }}">{{ $announcement->title }}</a>
                                     </h4>
-                                    <p>{{ \Str::limit($announcement->content, 100) }}</p>
+                                    <p>{{ $announcement->content }}</p>
 
                                 </div>
                             </div>

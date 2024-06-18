@@ -13,6 +13,7 @@ class AnnouncementController extends Controller
         $announcements = Announcement::latest()->paginate(5);
         $announcements->withPath(url()->current());
         // return view('frontend.announcements.index', compact('announcements'));
+        // dd($announcements);
         return view('frontend_revisi.announcements.index', compact('announcements'));
     }
 
