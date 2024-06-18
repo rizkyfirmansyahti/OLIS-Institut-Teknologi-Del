@@ -80,8 +80,6 @@
                                                     class="fas fa-pencil-alt fa-fw m-r10"></i>{{ $book->author }}</li>
                                             <li class="post-author">ISBN :
                                                 {{ $book->isbn }}</li>
-                                            <li class="post-date"><i class="fas fa-star fa-fw m-r10"></i>
-                                                {{ $book->rating }}</li>
                                         </ul>
                                     </div>
                                 </div>

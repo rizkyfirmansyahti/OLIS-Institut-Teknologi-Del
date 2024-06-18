@@ -283,6 +283,10 @@
                                                     <i class="fas fa-star fa-lg"
                                                         style="color: #ff9d33; margin-right: 10px;"></i>{{ $book->rating }}
                                                 </li>
+                                                <li>
+                                                    <i class="fas fa-pencil fa-lg"
+                                                        style="color: #ff9d33; margin-right: 10px;"></i>{{ $book->author }}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
