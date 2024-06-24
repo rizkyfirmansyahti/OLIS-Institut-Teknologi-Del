@@ -132,16 +132,44 @@
             font-weight: bold;
         }
     </style>
+    <style>
+        #bg-transparent {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* background-color: black; */
+            /* Warna hitam dengan 50% transparansi */
+        }
+    </style>
 @endpush
 @section('content')
     <div class="page-content bg-white">
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active mt-1 mt-md-0">
                     <img src="{{ 'frontend_revisi/images/header_2.jpg' }}" class="d-block w-100" alt="...">
+                    <div class="carousel-caption mt-5 mt-md-0">
+                        <div class="card" id="bg-transparent">
+                            <h5 class="fw-bold text-white mt-2">Jam Operasional <span class="d-none d-md-block">Perpustakaan
+                                    Institut Teknologi Del</span></h5>
+                            {{-- UNTUK MOBILE --}}
+                            <div class="d-block d-md-none">
+                                <p>Senin s/d Jum'at</p>
+                                <p>08.00 WIB s/d 17.00 WIB</p>
+                            </div>
+                            {{-- UNTUK DESKTOP --}}
+                            <div class="d-none d-md-block">
+                                <p>Senin : 08.00 WIB s/d 17.00 WIB</p>
+                                <p>Selasa : 08.00 WIB s/d 17.00 WIB</p>
+                                <p>Rabu : 08.00 WIB s/d 17.00 WIB</p>
+                                <p>Kamis : 08.00 WIB s/d 17.00 WIB</p>
+                                <p>Jumat : 08.00 WIB s/d 17.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+
         <!-- LAYANAN PERPUSTAKAAN IT DEL-->
         <section class="content-inner-2">
             <div class="container">
@@ -298,9 +326,170 @@
             </div>
         </section>
         <!-- BUKU DENGAN RATING TERTINGGI -->
+
+        <!-- INFORMASI PENGUNJUNG -->
+        <section class="content-inner-2 mb-4">
+            <div class="container">
+                <div class="section-head book-align">
+                    <h2 class="title mb-0">INFORMASI PENGUNJUNG PERPUSTAKAAN</h2>
+                </div>
+                <div class="row mt-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="container">
+                            <span class="fw-bold d-flex justify-content-center" style="color: #1a1668">Jumlah
+                                Pengunjung/Hari</span>
+                            <canvas id="pengunjungChartPerhari"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="container">
+                            <span class="fw-bold d-flex justify-content-center" style="color: #1a1668">Jumlah Pengunjung
+                                Prodi</span>
+                            <canvas id="pengunjungChartProdi"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="container">
+                            <span class="fw-bold d-flex justify-content-center" style="color: #1a1668">Jumlah
+                                Peminjaman/Hari</span>
+                            <canvas id="peminjamanChartPerhari"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="container">
+                            <span class="fw-bold d-flex justify-content-center" style="color: #1a1668">Jumlah
+                                Peminjaman/Role</span>
+                            <canvas id="peminjamanChartPerrole"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 mb-3">
+                        <div class="container">
+                            <span class="fw-bold d-flex justify-content-center" style="color: #1a1668">Jumlah
+                                Peminjaman/Prodi</span>
+                            <canvas id="peminjamanChartPerprodi"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- INFORMASI PENGUNJUNG -->
     </div>
 @endsection
 @push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- Pengunjung/Hari --}}
+    <script>
+        const ctxPerhari = document.getElementById('pengunjungChartPerhari').getContext('2d');
+        const pengunjungChartPerhari = new Chart(ctxPerhari, {
+            type: 'bar',
+            data: {!! json_encode($pengunjungChartPerhari) !!},
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    {{-- Pengunjung/Prodi --}}
+    <script>
+        $(document).ready(function() {
+            const ctxProdi = document.getElementById('pengunjungChartProdi').getContext('2d');
+            const pengunjungChartProdi = new Chart(ctxProdi, {
+                type: 'bar',
+                data: {!! json_encode($pengunjungChartProdi) !!},
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    {{-- Peminjaman/Hari --}}
+    <script>
+        $(document).ready(function() {
+            const ctxPeminjamanPerhari = document.getElementById('peminjamanChartPerhari').getContext('2d');
+            const peminjamanChartPerhari = new Chart(ctxPeminjamanPerhari, {
+                type: 'bar',
+                data: {!! json_encode($peminjamanChartPerhari) !!},
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    {{-- Peminjaman/Role/Bulan --}}
+    <script>
+        const ctxPeminjamanPerrolePerbulan = document.getElementById('peminjamanChartPerrole').getContext('2d');
+        const peminjamanChartPerrole = new Chart(ctxPeminjamanPerrolePerbulan, {
+            type: 'bar',
+            data: {
+                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September',
+                    'Oktober', 'November', 'Desember'
+                ],
+                datasets: [{
+                        label: 'Lecturer',
+                        data: [30, 40, 55, 60, 70, 80, 75, 85, 90, 95, 100, 110],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Student',
+                        data: [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65],
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Staff',
+                        data: [5, 7, 10, 12, 15, 17, 20, 22, 25, 27, 30, 32],
+                        backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    {{-- Peminjaman/Prodi/Bulan --}}
+    <script>
+        $(document).ready(function() {
+            const ctxPeminjamanPerprodiPerbulan = document.getElementById('peminjamanChartPerprodi').getContext(
+                '2d');
+            const peminjamanChartPerprodi = new Chart(ctxPeminjamanPerprodiPerbulan, {
+                type: 'bar',
+                data: {!! json_encode($peminjamanChartPerprodi) !!},
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+
     <script>
         $(document).ready(function() {
             let images = document.querySelectorAll('img');

@@ -3,7 +3,7 @@
     <div class="footer-top">
         <div class="container">
             <div class="row">
-                <div class=" col-lg-12 wow fadeInUp" data-wow-delay="0.1s">
+                <div class=" col-lg-8 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="widget widget_about">
                         <div class="footer-logo logo-white">
                             <a href="https://www.del.ac.id/"><img src="{{ asset('frontend_revisi/images/olis.png') }}"
@@ -20,6 +20,13 @@
                             Telp: +62 632 331234
                             <br>
                             Fax: +62 632 331116
+                        </p>
+                        <p class="text text-white">
+                            NPP :
+                            <span class="fw-bold">00162/LAP.PT/VIII.2020</span>
+                            <br>
+                            Akreditasi :
+                            <span class="fw-bold">B</span>
                         </p>
                         <div class="dz-social-icon style-1">
                             <ul>
